@@ -1,13 +1,17 @@
 import numpy as np
+from keras.models import Sequential
+from keras.layers.core import Dense, Dropout, Activation
+from keras.layers.embeddings import Embedding
+from keras.layers.recurrent import LSTM
 
 X_train = np.load("X_train.npy")
 X_test = np.load("X_test.npy")
 y_train = np.load("y_train.npy")
 y_test = np.load("y_test.npy")
-dict_len = 100000
+dict_len = 167104
 
 model = Sequential()
-model.add(Embedding(dictionary_length + 1, 128, input_length=100))
+model.add(Embedding(dict_len + 1, 128, input_length=100))
 model.add(LSTM(64, return_sequences=True))
 model.add(LSTM(64))
 model.add(Dropout(0.5))
