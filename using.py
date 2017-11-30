@@ -4,11 +4,11 @@ import numpy as np
 import pymorphy2
 import re
 
-dictionary = np.load("dictionary")
+dictionary = np.load("dictionary.npy").tolist()
 
 model = load_model('m.h5')
 
-words="они вырвали мое бедное сердце из грудной клетки и разбили его на миллионы и миллионы осколков #StarWars— Remi Evans (@Remi_Evans) December 22, 2015"
+words="Короч, все должно работать, хехе"
 
 def text_handler(text):
     morph = pymorphy2.MorphAnalyzer()
